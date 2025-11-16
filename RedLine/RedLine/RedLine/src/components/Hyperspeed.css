@@ -1,0 +1,45 @@
+#lights {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+}
+/* minimal canvas container styles used by Hyperspeed.jsx */
+#lights {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+/* ensure the canvas fills the parent */
+#lights canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* fallback UI while loading (used by Suspense) */
+.hyperspeed-fallback {
+  height: 340px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: rgba(255,255,255,0.9);
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2));
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.hyperspeed-paused {
+  height: 340px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: rgba(255,255,255,0.85);
+  font-weight:700;
+}

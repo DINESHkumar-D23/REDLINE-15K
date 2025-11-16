@@ -1,0 +1,122 @@
+    /* Header layout */
+    .rl-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      z-index: 50;
+      backdrop-filter: blur(3px);
+      background: linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.08));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 5px rgba(0,0,0,0.25);
+    }
+
+    /* Left block: logo */
+    .rl-header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Logo area */
+    .rl-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      user-select: none;
+    }
+
+    /* Logo text — strong, stylized */
+    .rl-logo-text {
+      font-family: "Orbitron", sans-serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.5px;
+      color: #fff;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    /* F1-style red streak under logo */
+    .rl-logo-streak {
+      width: 120px;                 /* length of the streak */
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff4b2b 0%, #ff002b 60%, #ff4b2b 100%);
+      box-shadow: 0 6px 20px rgba(255,75,43,0.12), inset 0 -2px 6px rgba(0,0,0,0.12);
+      transform-origin: left center;
+      /* a subtle skew to feel like speed */
+      transform: skewX(-12deg);
+    }
+
+    /* Navigation block */
+    .rl-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    /* Nav link base */
+    .rl-nav-link {
+      font-family: "Inter", sans-serif;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 180ms ease;
+      white-space: nowrap;
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* Hover state */
+    .rl-nav-link:hover {
+      color: #fff;
+      transform: translateY(-2px);
+      text-shadow: 0 8px 18px rgba(0,0,0,1);
+    }
+
+    /* Active tab — highlighted with a small red underline and bolder */
+    .rl-nav-link.active {
+      color: #fff;
+      position: relative;
+      font-weight: 1000;
+    }
+
+    /* active underline */
+    .rl-nav-link.active::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px) skewX(-8deg);
+      bottom: -6px;
+      width: 60%;
+      height: 3px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #ff4b2b, #ff002b);
+      box-shadow: 0 6px 18px rgba(255,75,43,0.14);
+    }
+
+    /* Responsive: collapse nav on small screens */
+    @media (max-width: 820px) {
+      .rl-nav {
+        gap: 10px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Mobile: stack / hide into simple menu (basic) */
+    @media (max-width: 560px) {
+      .rl-header {
+        padding: 0 14px;
+        height: 64px;
+      }
+
+      .rl-nav {
+        display: none; /* keep it simple; you can swap with a burger menu later */
+      }
+    }

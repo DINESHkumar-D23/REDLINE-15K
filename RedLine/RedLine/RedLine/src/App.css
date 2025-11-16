@@ -1,0 +1,118 @@
+/* App container */
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #948d8f 0%, #726f6f 60%);
+}
+
+.bg-wrap {
+  position: absolute;
+  inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+  overflow: hidden;
+  pointer-events: none;   /* allow clicks through to UI */
+}
+
+/* each strip is 200% width so that two of them tile nicely */
+.bg-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200%; /* wide so the image repeats horizontally */
+  background-repeat: repeat-x;
+  background-size: auto 45%; /* fits height; tweak as needed */
+  background-position: center center;
+  opacity: 0.12; /* subtle */
+  transform: translateZ(0); /* GPU acceleration hint */
+}
+
+/* second strip sits to the right so when first slides left, second follows */
+.bg-strip + .bg-strip {
+  left: 100%;
+}
+
+/* Foreground centered content */
+.content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Typography */
+.content h1 {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  text-shadow: 0 6px 22px rgba(0,0,0,0.25);
+}
+
+.content p {
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 1.6rem;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+}
+
+/* CTA */
+.cta {
+  background: rgba(255,255,255,0.95);
+  color: #ff416c;
+  padding: 0.8rem 1.6rem;
+  border-radius: 40px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 180ms ease;
+}
+
+.cta:hover { /* framer will animate scale; this is extra polish */
+  transform: translateY(-2px);
+}
+
+/* small screens: shrink background image height a bit */
+@media (max-width: 640px) {
+  .bg-strip {
+    background-size: auto 60%;
+    opacity: 0.08;
+  }
+}
+
+/* ------------------------------ */
+/* LOGO BEHIND WELCOME HEADING   */
+/* ------------------------------ */
+
+.landing-container {
+  position: relative;
+}
+
+.landing-logo-bg {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.12; /* subtle, not disturbing */
+  pointer-events: none; /* don't block clicks */
+}
+
+.landing-logo-bg img {
+  width: 420px;
+  max-width: 70vw;
+  filter: drop-shadow(0px 0px 12px rgba(255, 70, 70, 0.5));
+}
+
+.landing-content {
+  position: relative;
+  z-index: 3; /* above the logo */
+  text-align: center;
+}
+

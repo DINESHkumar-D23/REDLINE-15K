@@ -1,0 +1,67 @@
+/* src/components/Leaderboard.css */
+/* Root styles (match your theme) */
+.lb-root {
+  width: 100%;
+  max-width: 760px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 10px 36px rgba(0,0,0,0.6);
+  color: #fff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+/* header */
+.lb-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.lb-header strong { font-size:1rem; display:block; }
+.lb-sub { font-size:0.82rem; color: rgba(255,255,255,0.7); margin-top:2px; }
+
+/* controls */
+.lb-controls { display:flex; gap:8px; align-items:center; }
+.lb-btn { padding:8px 10px; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); color:#fff; border-radius:8px; cursor:pointer; font-weight:700; font-size:0.88rem; }
+.lb-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,0.4); }
+.lb-btn.connected { background: linear-gradient(90deg,#4ad39b,#16b98e); color:#042; border:none; }
+
+/* top 3 */
+.lb-top3 { display:flex; gap:10px; margin-bottom:12px; }
+.top3-card { flex:1; display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:10px; background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); border:1px solid rgba(255,255,255,0.02); }
+.top3-card .pos { width:44px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:1.02rem; }
+.t1 .pos { background: linear-gradient(90deg,#ffd54a,#ffb64d); color:#000; box-shadow:0 10px 28px rgba(255,180,60,0.12); }
+.t2 .pos { background: linear-gradient(90deg,#c7c7c7,#9e9e9e); color:#042; }
+.t3 .pos { background: linear-gradient(90deg,#b06fff,#8b4fcf); color:#fff; }
+.top3-card .meta { flex:1; display:flex; flex-direction:column; gap:2px; }
+.top3-card .name { font-weight:800; font-size:0.95rem; }
+.top3-card .team { font-size:0.78rem; color: rgba(255,255,255,0.66); }
+.top3-card .time { font-weight:800; min-width:64px; text-align:right; }
+
+/* list header */
+.lb-list-wrap { border-radius:8px; overflow:hidden; }
+.lb-list-head { display:grid; grid-template-columns: 48px 1fr 200px 84px; gap:12px; padding:6px 8px; font-size:0.82rem; color: rgba(255,255,255,0.8); border-bottom:1px solid rgba(255,255,255,0.02); background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); }
+
+/* rows */
+.lb-list { max-height: 360px; overflow-y:auto; padding:6px; }
+.lb-row { display:grid; grid-template-columns:48px 1fr 200px 84px; gap:12px; align-items:center; padding:8px; border-radius:8px; transition: background 220ms ease, transform 160ms ease; margin-bottom:6px; cursor:default; }
+.lb-row:focus { outline: 2px solid rgba(255,107,75,0.12); transform:translateY(-2px); }
+.lb-row.top { background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008)); }
+.lb-row .c-pos { font-weight:800; color:#fff; display:flex; align-items:center; justify-content:center; }
+.lb-row .c-name { font-weight:700; }
+.lb-row .c-team { color: rgba(255,255,255,0.66); font-size:0.9rem; }
+.lb-row .c-time { text-align:right; font-weight:800; }
+
+/* expanded details inside a row */
+.lb-row-details { padding:8px 12px 12px 12px; margin-top: 6px; border-top: 1px dashed rgba(255,255,255,0.03); }
+.details-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
+.small-muted { color: rgba(255,255,255,0.66); margin-top:6px; }
+
+/* flash when row changed */
+.row-flash { animation: lb-flash 1.6s ease; }
+@keyframes lb-flash { 0% { box-shadow:0 6px 18px rgba(255,107,75,0.18); transform:translateY(-4px); } 50% { box-shadow:0 18px 48px rgba(255,107,75,0.06); } 100% { box-shadow:none; transform:translateY(0); } }
+
+/* responsive */
+@media (max-width: 900px) {
+  .lb-root { max-width:100%; padding: 12px; }
+  .lb-list-head, .lb-row { grid-template-columns: 40px 1fr 140px 64px; }
+  .top3-card .pos { width:40px; height:40px; }
+  .lb-list { max-height:260px; }
+}
