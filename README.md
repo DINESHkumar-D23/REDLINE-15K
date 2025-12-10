@@ -1,6 +1,6 @@
 # RedLine Motorsport Simulator
 
-Node.js + React (Vite) frontend for Formula 1, MotoGP, and drone-racing simulation. It combines animated track selection, a parameter-rich simulation view, and real-time leaderboards that can run off either built-in mocks or an external telemetry feed.
+RedLine Motorsport Simulator is a Node.js + React racing simulation platform supporting F1, MotoGP, and drones. It features animated track browsing, real-time leaderboards, configurable race parameters, SVG/3D-ready rendering, and optional WebSocket telemetry for live event simulation.
 
 ## Repository Layout
 - `RedLine/RedLine/RedLine/` — app root (created from the original archive; leave nesting intact).
@@ -77,5 +77,6 @@ Open the printed localhost URL in your browser.
 ## Repository Tips
 - Keep the nested folder structure if you move the project; relative imports assume the current layout.
 - If you need environment-specific settings, create `.env` with `VITE_*` variables as required (e.g., `VITE_WEBSOCKET_URL`).
+
 
 
